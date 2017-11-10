@@ -24,3 +24,27 @@ npm install -s mocha
 ```bash
 npm install -g mocha
 ```
+### 编写单元测试用例
+```javascript
+//add.js
+function add(a,b){
+    return a+b;
+}
+module.exports=add;
+```
+测试用例
+```javascript
+var add = require('./add');
+var expect = require('chai').expect;
+describe('加法函数测试',function  ( ) {
+     it('1+1=2',function(){
+        expect(add(1,1)).to.be.equal(2);
+     });
+      it('2+1=3',function(){
+        expect(add(2,1)).to.be.equal(3);
+     });
+});
+```
+其中``` require('chai').expect```为第三方的一个断言库。describe为开始一个测试套件,it为一个测试用例。
+具体断言库的使用还需要参考具具体的API
+
